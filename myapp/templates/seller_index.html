@@ -1,0 +1,540 @@
+<{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:22 GMT -->
+<head>
+<title>seller index</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Mixtape template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link rel="stylesheet" href="{% static 'css2/animate.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css2/style.css' %}" />
+    <script type="text/javascript" src="{% static 'js2/jquery-1.11.2.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js2/plugins.js' %}"></script>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+<div class="super_container">
+<!---------------------------------------css 2------------------------------------->
+
+
+
+
+<!------------------------------------css 2 end---------------------------------->
+
+
+<!------------------------------------header start------------>
+<header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="{% url 'seller_index' %}">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+{% if request.session.email %}
+ <li><a href="{% url 'seller_edit_profile' %}">Edit profile</a></li>
+ 	
+ <li><a href="{% url 'seller_change_password' %}">Change password</a></li>
+
+ <li><a href="{% url 'logout' %}">Logout :- {{request.session.fname}}</a></li>
+ <img src="{{request.session.image}}" width="40px" height="40px">
+{% else %}
+ <li><a href="{% url 'login' %}">Login</a></li>
+ <li><a href="{% url 'Register' %}">Register</a></li>
+{% endif %}
+</ul>
+</div>
+<nav class="main_nav">
+  <ul class="d-flex flex-row align-items-start justify-content-start" style="margin-left: -500px;">
+    <li><a href="{% url 'seller_index' %}">Home</a></li>
+    <li><a href="{% url 'seller_add_product' %}">Add product</a></li>
+    <li><a href="{% url 'seller_view_product' %}">View product</a></li>
+    <li><a href="#">My Orders</a></li>
+  </ul>
+</nav>
+</div>
+</header>
+<!--------------------------end header---------------------------->
+
+<!---------------------------- manu ----------------------------------------------------->
+
+<!-----------------------home----------------------------------------------------->
+</head>
+  <body>
+  <div class="svg-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <path id="arrow-left" d="M26.667 10.667q1.104 0 1.885 0.781t0.781 1.885q0 1.125-0.792 1.896l-14.104 14.104h41.563q1.104 0 1.885 0.781t0.781 1.885-0.781 1.885-1.885 0.781h-41.563l14.104 14.104q0.792 0.771 0.792 1.896 0 1.104-0.781 1.885t-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.813-0.771-1.896t0.771-1.896l18.667-18.667q0.792-0.771 1.896-0.771z"></path>
+      </svg>
+
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <path id="arrow-right" d="M37.333 10.667q1.125 0 1.896 0.771l18.667 18.667q0.771 0.771 0.771 1.896t-0.771 1.896l-18.667 18.667q-0.771 0.771-1.896 0.771-1.146 0-1.906-0.76t-0.76-1.906q0-1.125 0.771-1.896l14.125-14.104h-41.563q-1.104 0-1.885-0.781t-0.781-1.885 0.781-1.885 1.885-0.781h41.563l-14.125-14.104q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z"></path>
+      </svg>
+    </div>
+
+
+<!---------------------------- home slider -------------------------------------------->
+  <!-- SLIDER -->
+      <div  class="header-slide">
+        <section>
+          <div id="loader" class="pageload-overlay" data-opening="M 0,0 0,60 80,60 80,0 z M 80,0 40,30 0,60 40,30 z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+              <path d="M 0,0 0,60 80,60 80,0 Z M 80,0 80,60 0,60 0,0 Z"/>
+            </svg>
+          </div> <!-- /.pageload-overlay -->
+          
+          <div class="image-slide bg-fixed">
+            <div class="overlay">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="slider-content">
+                      <h1></h1>
+                      <br>
+                      <div class="home_link"><a href="#">Listen on Soundcloud</a></div>
+                      <br>
+                      <p>We are a creative agency from the earth of Bandung, Indonesia</p>
+                    </div>
+
+                  </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+              </div> <!-- /.container -->
+            </div> <!-- /.overlay -->
+          </div> <!-- /.image-slide -->
+
+          <nav class="nav-slide">
+            <a class="prev" href="#prev">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-left">
+                </svg>
+              </span>
+              <div>
+                <span>Prev Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Previous thumb">
+              </div>
+            </a>
+            <a class="next" href="#next">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-right">
+                </svg>
+              </span>
+              <div>
+                <span>Next Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Next thumb">
+              </div>
+            </a>
+
+             <a class="next" href="#next">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-right">
+                </svg>
+              </span>
+              <div>
+                <span>Next Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Next thumb">
+              </div>
+            </a>
+
+          </nav>
+        </section>
+
+        <script type="text/javascript">
+        var dataHeader = [
+                            {
+                              bigImage :"{% static 'images/index1.jpg' %}",
+                              title : "Minimal & Clean",
+                author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images/index2.jpg' %}",
+                              title : "I'm A Creative Theme",
+                              author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images/index3.jpg' %}",
+                              title : "I'm A Creative Theme",
+                              author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images/index7.png' %}",
+                              title : "Achieve Success",
+                              author : "Templatestock"
+                            }
+                        ],
+            loaderSVG = new SVGLoader(document.getElementById('loader'), {speedIn : 500, speedOut : 500, easingIn : mina.easeinout});
+            loaderSVG.show()
+        </script>
+
+      </div><!-- /.header-slide -->
+    </section>
+
+    <script type="text/javascript" src="{% static 'js2/main.js' %}"></script>
+  </body>
+</html>
+<!-------------------------------------------sliderrr 1 edit ---------------------------->
+
+<!--------------------------------------end slider------------------------------------->
+<!---------------------------------featured_album -------------------------------------->
+
+
+<div class="featured_album">
+<div class="background_image featured_background" style="background-image:url({% static 'images/featured.png' %})"></div>
+<div class="container">
+<div class="row">
+<div class="col-lg-6 offset-lg-6">
+<div class="section_title_container">
+<div class="section_subtitle">Events</div>
+<div class="section_title"><h1>Featured Album</h1></div>
+</div>
+</div>
+</div>
+<div class="row featured_row row-lg-eq-height">
+
+<div class="col-md-6">
+<div class="featured_album_image">
+<div class="image_overlay"></div>
+<div class="background_image" style="background-image:url({% static 'images/featured_album.jpg' %})"></div>
+
+</div>
+ </div>
+
+<div class="col-md-6 featured_album_col">
+<div class="featured_album_player_container d-flex flex-column align-items-start justify-content-center">
+<div class="featured_album_player">
+<div class="featured_album_title_bar d-flex flex-row align-items-center justify-content-start">
+<div class="featured_album_title_container">
+<div class="featured_album_artist">Maria Smith</div>
+<div class="featured_album_title">Love is all Around</div>
+</div>
+<div class="featured_album_link ml-auto"><a href="#">buy it on itunes</a></div>
+</div>
+<div id="jplayer_1" class="jp-jplayer"></div>
+<div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+<div class="jp-type-playlist">
+<div class="jp-playlist">
+<ul>
+<li></li>
+</ul>
+</div>
+<div class="player_details d-flex flex-row align-items-center justify-content-start">
+<div class="jp-details">
+<div>playing</div>
+<div class="jp-title" aria-label="title">&nbsp;</div>
+</div>
+<div class="jp-controls-holder ml-auto">
+<button class="jp-play" tabindex="0"></button>
+</div>
+</div>
+<div class="player_controls">
+<div class="jp-gui jp-interface d-flex flex-row align-items-center justify-content-start">
+<div class="jp-controls-holder time_controls d-flex flex-row align-items-center justify-content-start">
+<div><div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div></div>
+<div class="jp-progress">
+<div class="jp-seek-bar">
+<div class="jp-play-bar"></div>
+</div>
+</div>
+<div><div class="jp-duration ml-auto" role="timer" aria-label="duration">&nbsp;</div></div>
+</div>
+<div class="jp-volume-controls d-flex flex-row align-items-center justify-content-start ml-auto">
+<button class="jp-mute" tabindex="0"></button>
+<div class="jp-volume-bar">
+<div class="jp-volume-bar-value"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-no-solution">
+<span>Update Required</span>
+To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!---------------------------------------shows ---------------------------------------->
+<div class="shows">
+<div class="container">
+<div class="row" style="z-index:10;">
+<div class="col">
+<div class="section_title_container">
+<div class="section_subtitle">Events</div>
+<div class="section_title"><h1>Upcoming Shows</h1></div>
+</div>
+</div>
+</div>
+<div class="row shows_row">
+
+<div class="col-lg-8 order-lg-1 order-2 shows_list_col">
+<div class="shows_list_container">
+<ul class="shows_list">
+
+<li class="d-flex flex-row align-items-center justify-content-start">
+<div><div class="show_date">18/07</div></div>
+<div class="show_locationfo d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+<div class="show_name"><a href="#">Electric Castle Festival</a></div>
+<div class="show_location">Cluj, Romania</div>
+</div>
+<div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
+</li>
+
+<li class="d-flex flex-row align-items-center justify-content-start">
+<div><div class="show_date">20/07</div></div>
+<div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+<div class="show_name"><a href="#">Ultra Music Festival</a></div>
+<div class="show_location">Miami, USA</div>
+</div>
+<div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
+</li>
+
+<li class="d-flex flex-row align-items-center justify-content-start">
+<div><div class="show_date">03/08</div></div>
+<div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+<div class="show_name"><a href="#">Untold Festival</a></div>
+<div class="show_location">Cluj, Romania</div>
+</div>
+<div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
+</li>
+
+<li class="d-flex flex-row align-items-center justify-content-start">
+<div><div class="show_date">11/08</div></div>
+<div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+<div class="show_name"><a href="#">Sun Kissed Festival</a></div>
+<div class="show_location">Paris, France</div>
+</div>
+<div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
+</li>
+
+<li class="d-flex flex-row align-items-center justify-content-start">
+<div><div class="show_date">18/08</div></div>
+<div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+<div class="show_name"><a href="#">Spanish Festival</a></div>
+<div class="show_location">Madrid, Spain</div>
+</div>
+<div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
+</li>
+
+<li class="d-flex flex-row align-items-center justify-content-start">
+<div><div class="show_date">25/08</div></div>
+<div class="show_info d-flex flex-md-row flex-column align-items-md-center align-items-start justify-content-md-start justify-content-center">
+<div class="show_name"><a href="#">Vikings Festival</a></div>
+<div class="show_location">Oslo, Norway</div>
+</div>
+<div class="ml-auto"><div class="show_shop trans_200"><a href="#">Buy Tickets</a></div></div>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="col-lg-4 order-lg-2 order-1">
+<div class="shows_image">
+<div class="image_overlay"></div>
+<img src="{% static 'images/shows.jpg' %}" alt="https://unsplash.com/@anthonydelanoix">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!------------------------------artist ----------------------------------------------------->
+
+<div class="artist">
+<div class="container">
+<div class="row">
+
+<div class="col-lg-4 artist_image_col">
+<div class="artist_image">
+<img src="{% static 'images/artist.png' %}" alt="">
+</div>
+</div>
+
+<div class="col-lg-7 offset-lg-1">
+<div class="artist_content">
+<div class="section_title_container">
+<div class="section_subtitle">Events</div>
+<div class="section_title"><h1>The Artist</h1></div>
+</div>
+<div class="artist_text">
+<p> In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum. Nullam volutpat dui sem, ac congue purus luctus nec. Curabitur luctus luctus erat, sit amet facilisis quam congue quis. Quisque ornare luctus erat id dignissim. Nullam ac nunc quis ex porttitor luctus.</p>
+<p>Integer sed facilisis eros. In iaculis rhoncus velit in malesuada. In hac habitasse platea dictumst. Fusce erat ex, consectetur sit amet ornare suscipit, porta et erat. Donec nec nisi in nibh commodo laoreet. Mauris dapibus justo ut feugiat malesuada. Fusce ultricies ante tortor, non vestibulum est feugiat ut.</p>
+</div>
+<div class="artist_sig"><img src="{% static 'images/sig.png' %}" alt=""></div>
+<div class="single_player_container d-flex flex-column align-items-start justify-content-center">
+<div class="single_player">
+<div id="jplayer_2" class="jp-jplayer"></div>
+<div id="jp_container_2" class="jp-audio" role="application" aria-label="media player">
+<div class="jp-type-single">
+<div class="player_details d-flex flex-row align-items-center justify-content-start">
+<div class="jp-details">
+<div>playing</div>
+<div class="jp-title" aria-label="title">&nbsp;</div>
+</div>
+<div class="jp-controls-holder ml-auto">
+<button class="jp-play" tabindex="0"></button>
+</div>
+</div>
+<div class="player_controls">
+<div class="jp-gui jp-interface d-flex flex-row align-items-center justify-content-start">
+<div class="jp-controls-holder time_controls d-flex flex-row align-items-center justify-content-start">
+<div><div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div></div>
+<div class="jp-progress">
+<div class="jp-seek-bar">
+ <div class="jp-play-bar"></div>
+</div>
+</div>
+<div><div class="jp-duration ml-auto" role="timer" aria-label="duration">&nbsp;</div></div>
+</div>
+<div class="jp-volume-controls d-flex flex-row align-items-center justify-content-start ml-auto">
+<button class="jp-mute" tabindex="0"></button>
+<div class="jp-volume-bar">
+<div class="jp-volume-bar-value"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-no-solution">
+<span>Update Required</span>
+To play the media you will need to either update your browser to a recent version or update your <a href="https://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="extra">
+<div class="extra_container">
+<div class="background_image" style="background-image:url({% static 'images/extra.jpg' %})"></div>
+<div class="container">
+<div class="row">
+<div class="col-lg-9">
+<div class="extra_content d-flex flex-column align-items-start justify-content-center">
+<div class="extra_title"><h1>Get your tickets now!</h1></div>
+<div class="extra_text">
+<p>In vitae nisi aliquam, scelerisque leo a, volutpat sem. Vivamus rutrum dui fermentum eros hendrerit, id lobortis leo volutpat. Maecenas sollicitudin est in libero pretium interdum</p>
+</div>
+<div class="extra_button"><a href="#">Buy Now</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!---------------------------------------------Footer---------------------------------------------->
+
+<footer class="footer">
+<div class="footer_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+<div class="newsletter_container">
+<div class="newsletter_title"><h2>Subscribe to our newsletter</h2></div>
+<form action="#" id="newsletter_form" class="newsletter_form">
+<input type="email" class="newsletter_input" placeholder="Your E-mail" required="required">
+<button class="newsletter_button">Subscribe</button>
+</form>
+</div>
+<div class="footer_lists d-flex flex-sm-row  flex-column align-items-start justify-content-start ml-xl-auto">
+
+<div class="footer_list">
+<div class="footer_list_title">Useful Links</div>
+<ul>
+<li><a href="index-2.html">Home</a></li>
+<li><a href="about.html">About us</a></li>
+<li><a href="#">Testimonials</a></li>
+<li><a href="#">Music</a></li>
+<li><a href="blog.html">News</a></li>
+</ul>
+</div>
+
+<div class="footer_list">
+<div class="footer_list_title">Mixtape</div>
+<ul>
+<li><a href="#">Music</a></li>
+<li><a href="#">PR & Marketing</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">About us</a></li>
+<li><a href="#">Testimonials</a></li>
+</ul>
+</div>
+
+<div class="footer_list">
+<div class="footer_list_title">Connect</div>
+<ul>
+<li><a href="#">Returns</a></li>
+<li><a href="#">Shippings</a></li>
+<li><a href="#">Jobs</a></li>
+<li><a href="#">Social Media</a></li>
+<li><a href="#">Soundcloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="copyright_bar">
+<span>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+
+</span>
+</div>
+</footer>
+</div>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/jPlayer/jquery.jplayer.min.js' %}"></script>
+<script src="{% static 'plugins/jPlayer/jplayer.playlist.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="{% static '../../../static.cloudflareinsights.com/beacon.min.js' %}" data-cf-beacon='{"si":10,"version":"2021.2.0","rayId":"6314adcd3fc9d5e8"}'></script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:30 GMT -->
+</html>

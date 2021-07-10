@@ -1,0 +1,295 @@
+<{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:22 GMT -->
+<head>
+<title>Mixtape</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Mixtape template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/main_styles.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
+</head>
+<body>
+<div class="super_container">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script type="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    
+<style type="text/css">body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}</style>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
+<!------------------------------------header start------------>
+{% if request.session.email %}
+
+
+
+<header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="#">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+
+ <li><a href="{% url 'mywishlist' %}">Wishlist</a></li>
+
+ <li><a href="{% url 'edit_profile' %}">Edit profile</a></li>
+    
+ <li><a href="{% url 'change_password' %}">Change password</a></li>
+
+ <li><a href="{% url 'logout' %}">Logout : {{request.session.fname}}</a></li>
+ <img src="{{request.session.image}}" width="40px" height="40px">
+
+ 
+
+{% else %}
+
+ <header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="#">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+ <li><a href="{% url 'login' %}">Login</a></li>
+ <li><a href="{% url 'Register' %}">Register</a></li>
+
+
+{% endif %}
+
+
+</ul>
+</div>
+<nav class="main_nav">
+<ul class="d-flex flex-row align-items-start justify-content-start"style="margin-left: -200px;">
+<li class="active"><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'about' %}">About us</a></li>
+<li><a href="{% url 'music' %}">Music</a></li>
+<li><a href="{% url 'blog' %}">Blog</a></li>
+<li><a href="{% url 'contact' %}">Contact</a></li>
+<li><a href="{% url 'store' %}"style="margin-right:100px">store</a></li>
+
+
+</ul>
+</nav>
+<div class="hamburger ml-auto">
+<div class="d-flex flex-column align-items-end justify-content-between">
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+</div>
+</header>
+<!--------------------------end header---------------------------->
+<!----------------------------edit profile--------------------------------->
+<body>
+    {% csrf_token %}
+    {% if msg %}
+        <span style="color: blue;">{{msg}}</span>
+    {% endif %}
+<form name="edit_profile" method="POST" action="{% url 'edit_profile' %}" enctype="multipart/form-data" >
+    {% csrf_token %}
+<div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-3 border-right">
+
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" src="{{request.session.image}}" width="200px" height="200px"><span class="font-weight-bold">{{request.session.fname}}</span><span class="text-black-50">{{request.session.email}}</span><span> </span></div>
+
+
+
+        </div>
+        <div class="col-md-5 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="text-right">Profile Settings</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" value="{{user.fname}}"  name="fname"  ></div>
+
+                    <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="{{user.lname}}" name="lname" placeholder="surname" ></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-12"><label class="labels">PhoneNumber</label><input type="text" class="form-control" placeholder="enter phone number" value="{{user.mobile}}" name="mobile" ></div>
+
+                    <div class="col-md-12"><label class="labels">Address</label>
+                        <input type="textarea" name="address" class="form-control" placeholder="enter address" value="{{user.address}}" ></textarea></div>
+
+                    <div class="col-md-12"><label class="labels">Email ID</label><input type="text" class="form-control" placeholder="enter email id" value="{{user.email}}" name="email"></div>
+                    
+
+                    {% if user.gender == "male" %}
+                    <div class="col-md-12"><label class="labels">Gender</label>
+                        <input type="radio"  value="male" name="gender" checked="checked"  placeholder="male">Male 
+                        <input type="radio"  value="female" name="gender"  placeholder="female" >Female
+                </div>
+                {% else %}
+                 <div class="col-md-12"><label class="labels">Gender</label>
+                        <input type="radio" name="gender" value="male" >Male
+                        <input type="radio" name="gender" value="female" checked="checked" >Female
+                </div>
+                {% endif %}
+
+                <br><br>
+                <input style="margin-left: 15px;"  type="file" name="image">
+
+                <br>
+                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" style="margin-left: -200px;" type="submit">Save Profile</button></div>
+            </div>
+        </div>
+       
+        </div>
+    </div>
+</div>
+</form>
+</div>
+</div>
+
+
+
+
+<!-------------------------footer----------------------------->
+<footer class="footer">
+<div class="footer_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+<div class="newsletter_container">
+<div class="newsletter_title"><h2>Subscribe to our newsletter</h2></div>
+<form action="#" id="newsletter_form" class="newsletter_form">
+<input type="email" class="newsletter_input" placeholder="Your E-mail" required="required">
+<button class="newsletter_button">Subscribe</button>
+</form>
+</div>
+<div class="footer_lists d-flex flex-sm-row  flex-column align-items-start justify-content-start ml-xl-auto">
+
+<div class="footer_list">
+<div class="footer_list_title">Useful Links</div>
+<ul>
+<li><a href="index-2.html">Home</a></li>
+<li><a href="about.html">About us</a></li>
+<li><a href="#">Testimonials</a></li>
+<li><a href="#">Music</a></li>
+<li><a href="blog.html">News</a></li>
+</ul>
+</div>
+
+<div class="footer_list">
+<div class="footer_list_title">Mixtape</div>
+<ul>
+<li><a href="#">Music</a></li>
+<li><a href="#">PR & Marketing</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">About us</a></li>
+<li><a href="#">Testimonials</a></li>
+</ul>
+</div>
+
+<div class="footer_list">
+<div class="footer_list_title">Connect</div>
+<ul>
+<li><a href="#">Returns</a></li>
+<li><a href="#">Shippings</a></li>
+<li><a href="#">Jobs</a></li>
+<li><a href="#">Social Media</a></li>
+<li><a href="#">Soundcloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="copyright_bar">
+<span>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+
+</span>
+</div>
+</footer>
+</div>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/jPlayer/jquery.jplayer.min.js' %}"></script>
+<script src="{% static 'plugins/jPlayer/jplayer.playlist.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+<script defer src="{% static '../../../static.cloudflareinsights.com/beacon.min.js' %}" data-cf-beacon='{"si":10,"version":"2021.2.0","rayId":"6314adcd3fc9d5e8"}'></script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:30 GMT -->
+</html>

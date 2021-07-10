@@ -1,0 +1,290 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/contact.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:39 GMT -->
+<head>
+<title>My WishList</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Mixtape template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/contact.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/contact_responsive.css' %}">
+</head>
+<body>
+<div class="super_container">
+<!---------------------------------------css2----------------------------------->
+ 
+    <link rel="stylesheet" href="{% static 'css2/animate.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css2/style.css' %}" />
+
+    <script type="text/javascript" src="{% static 'js2/jquery-1.11.2.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js2/plugins.js' %}"></script>
+
+<!--------------------product css--------------------------------->
+<!------------------------------------css2----------------------------------------->
+<!DOCTYPE html>
+<html>
+<head>
+<meta >
+<style>
+.dropbtn {
+  background-color: ;
+  color: black ;
+  padding: 16px;
+  font-size: 16px;
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+</head>
+<body>
+<!-----------------------------------header--------------------------------->
+
+{% if request.session.email %}
+
+<header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="{% url 'index' %}">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+
+  <li><a href="{% url 'mycart' %}">MyCart({{request.session.cart_count}})</a></li>
+  <li><a href="{% url 'mywishlist' %}">Wishlist({{request.session.wishlist_count}})</a></li>
+
+ <li><a href="{% url 'edit_profile' %}">Edit profile</a></li>
+  
+ <li><a href="{% url 'change_password' %}">Change password</a></li>
+
+ <li><a href="{% url 'logout' %}">Logout :- {{request.session.fname}}</a></li>
+ <img src="{{request.session.image}}" width="40px" height="40px"> 
+{% else %}
+
+ <header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="{% url 'index' %}">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+ <li><a href="{% url 'login' %}">Login</a></li>
+ <li><a href="{% url 'Register' %}">Register</a></li>
+
+
+{% endif %}
+</ul>
+</div>
+<nav class="main_nav">
+<ul class="d-flex flex-row align-items-start justify-content-start"style="margin-left: -400px;">
+
+<li class="active"><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'about' %}">About us</a></li>
+<li><a href="{% url 'store' %}">store</a></li>
+
+<ul class="d-flex flex-row align-items-start justify-content-start">
+<div class="dropdown">
+  <button class="">BRAND</button>
+  <div class="dropdown-content">
+    <optgroup label="MAN WEAR"></optgroup>
+    <a href="{% url 'user_view_product' pb='all' %}">ALL</a>
+    <a href="{% url 'user_view_product' pb='calvin klein' %}">calvin klein</a>
+    <a href="{% url 'user_view_product' pb='gucci' %}">gucci</a>
+    <a href="{% url 'user_view_product' pb='true religion' %}">true religion</a>
+    <a href="{% url 'user_view_product' pb='burberry prorsum' %}">burberry prorsum</a>
+    <a href="{% url 'user_view_product' pb='armani' %}">armani</a>
+    <optgroup label="FEMALE"></optgroup>
+  </div>
+</div>
+
+
+
+
+
+</ul>
+</nav>
+<div class="hamburger ml-auto">
+<div class="d-flex flex-column align-items-end justify-content-between">
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+</div>
+</header>
+<!----------------------------header end --------------------------------------------->
+<!----------------------------manu---------------------------------------->
+
+
+<!--------------------------------------------body----------------------------->
+ </head>
+  <body>
+  <div class="svg-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <path id="arrow-left" d="M26.667 10.667q1.104 0 1.885 0.781t0.781 1.885q0 1.125-0.792 1.896l-14.104 14.104h41.563q1.104 0 1.885 0.781t0.781 1.885-0.781 1.885-1.885 0.781h-41.563l14.104 14.104q0.792 0.771 0.792 1.896 0 1.104-0.781 1.885t-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.813-0.771-1.896t0.771-1.896l18.667-18.667q0.792-0.771 1.896-0.771z"></path>
+      </svg>
+
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <path id="arrow-right" d="M37.333 10.667q1.125 0 1.896 0.771l18.667 18.667q0.771 0.771 0.771 1.896t-0.771 1.896l-18.667 18.667q-0.771 0.771-1.896 0.771-1.146 0-1.906-0.76t-0.76-1.906q0-1.125 0.771-1.896l14.125-14.104h-41.563q-1.104 0-1.885-0.781t-0.781-1.885 0.781-1.885 1.885-0.781h41.563l-14.125-14.104q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z"></path>
+      </svg>
+    </div>
+
+  <!-- SLIDER -->
+      <div  class="header-slide">
+        <section>
+          <div id="loader" class="pageload-overlay" data-opening="M 0,0 0,60 80,60 80,0 z M 80,0 40,30 0,60 40,30 z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+              <path d="M 0,0 0,60 80,60 80,0 Z M 80,0 80,60 0,60 0,0 Z"/>
+            </svg>
+          </div> <!-- /.pageload-overlay -->
+          
+          <div class="image-slide bg-fixed">
+            <div class="overlay">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="slider-content">
+                      <h1></h1>
+                      <p>We are a creative agency from the earth of Bandung, Indonesia</p>
+                    </div>
+
+                  </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+              </div> <!-- /.container -->
+            </div> <!-- /.overlay -->
+          </div> <!-- /.image-slide -->
+
+          <nav class="nav-slide">
+            <a class="prev" href="#prev">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-left">
+                </svg>
+              </span>
+              <div>
+                <span>Prev Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Previous thumb">
+              </div>
+            </a>
+            <a class="next" href="#next">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-right">
+                </svg>
+              </span>
+              <div>
+                <span>Next Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Next thumb">
+              </div>
+            </a>
+          </nav>
+        </section>
+
+        <script type="text/javascript">
+        var dataHeader = [
+                            {
+                              bigImage :"{% static 'images2/slider01.jpg' %}",
+                              title : "Minimal & Clean",
+                author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images2/slider04.jpg' %}",
+                              title : "I'm A Creative Theme",
+                              author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images2/slider02.jpg' %}",
+                              title : "Achieve Success",
+                              author : "Templatestock"
+                            }
+                        ],
+            loaderSVG = new SVGLoader(document.getElementById('loader'), {speedIn : 500, speedOut : 500, easingIn : mina.easeinout});
+            loaderSVG.show()
+        </script>
+
+      </div><!-- /.header-slide -->
+    </section>
+
+
+
+<!---------------------------------------product--layout 1--start------------------------------->
+<center>
+  {% if not wishlist %}
+    <h1>NO Items In Wishlist</h1>
+  {% else %}
+    <h3>Total Item In Wishlist :{{wishlist.count}}</h3>
+  {% endif %}
+
+</center>
+<div class="row" style="margin: 50px">
+    {% for i in wishlist %} 
+    <div class="col-sm-3"  ><br><br>
+    <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{i.product.Product_image.url}}" alt="Card image cap" width="150px" height="250px">
+    <div class="card-body"  style="width: 400px">
+    <h5 class="card-title">{{i.product.Product_brand}}</h5>
+    <h5 class="card-title">{{i.product.Product_model}}</h5>
+    
+    <a href="{{i.product.Product_image.url}}" class="btn btn-primary"style="margin-left: -20px;" >increase image</a>  
+    <a href="{% url 'user_product_detail' pid=i.product.pk %}" class="btn btn-primary">More Details</a>
+    </div>
+  </div>
+</div>
+{% endfor %}
+<!-------------------------------------product layout end --------------------------->
+
+
+
+
+
+
+
+
+
+   
+<!------------------ manuend-------------------------------------->
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="{% static 'js2/main.js' %}"></script>
+  </body>
+</html>
+
+
+<!------------------------footer------start-------------------->
+
+ 

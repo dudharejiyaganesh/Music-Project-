@@ -1,0 +1,544 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:32 GMT -->
+<head>
+<title>MAN'S WEAR </title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Mixtape template project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap-4.1.2/bootstrap.min.css' %}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/OwlCarousel2-2.2.1/animate.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/about_responsive.css' %}">
+</head>
+<body>
+<div class="super_container">
+<!---------------------------------------css 2-------------------------------------->
+   <link rel="stylesheet" href="{% static 'css2/animate.css' %}"/>
+
+    <link rel="stylesheet" href="{% static 'css2/style.css' %}" />
+
+    <script type="text/javascript" src="{% static 'js2/jquery-1.11.2.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'js2/plugins.js' %}"></script>
+
+
+<!-----------------------------------------HEADER 1 START--------------------------->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta >
+<style>
+.dropbtn {
+  background-color: ;
+  color: black ;
+  padding: 16px;
+  font-size: 16px;
+
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+</style>
+</head>
+<body>
+<!----------------------------------HEADER-------------------------------------------->
+{% if request.session.email %}
+
+<header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="{% url 'index' %}">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+
+  <li><a href="{% url 'mycart' %}">MyCart({{request.session.cart_count}})</a></li>
+
+ <li><a href="{% url 'mywishlist' %}">Wishlist({{request.session.wishlist_count}})</a></li>
+
+
+ <li><a href="{% url 'edit_profile' %}">Edit profile</a></li>
+  
+ <li><a href="{% url 'change_password' %}">Change password</a></li>
+
+ <li><a href="{% url 'logout' %}">Logout :- {{request.session.fname}}</a></li>
+ <img src="{{request.session.image}}" width="40px" height="40px"> 
+{% else %}
+
+ <header class="header">
+ <div class="header_content d-flex flex-row align-items-center justify-content-center">
+ <div class="logo"><a href="#">Mixtape</a></div>
+ <div class="log_reg">
+ <ul class="d-flex flex-row align-items-start justify-content-start">
+ <li><a href="{% url 'login' %}">Login</a></li>
+ <li><a href="{% url 'Register' %}">Register</a></li>
+
+
+{% endif %}
+</ul>
+</div>
+<nav class="main_nav">
+<ul class="d-flex flex-row align-items-start justify-content-start"style="margin-left: -400px;">
+
+<li class="active"><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'about' %}">About us</a></li>
+<li><a href="{% url 'store' %}">store</a></li>
+
+<ul class="d-flex flex-row align-items-start justify-content-start">
+<div class="dropdown">
+  <button class="">BRAND</button>
+  <div class="dropdown-content">
+    <optgroup label="MAN WEAR"></optgroup>
+    <a href="{% url 'user_view_product' pb='all' %}">ALL</a>
+    <a href="{% url 'user_view_product' pb='calvin klein' %}">calvin klein</a>
+    <a href="{% url 'user_view_product' pb='gucci' %}">gucci</a>
+    <a href="{% url 'user_view_product' pb='true religion' %}">true religion</a>
+    <a href="{% url 'user_view_product' pb='burberry prorsum' %}">burberry prorsum</a>
+    <a href="{% url 'user_view_product' pb='armani' %}">armani</a>
+    <a href="{% url 'user_view_product' pb='being human' %}">Being Human</a>
+    <optgroup label="FEMALE"></optgroup>
+  </div>
+</div>
+</ul>
+</nav>
+<div class="hamburger ml-auto">
+<div class="d-flex flex-column align-items-end justify-content-between">
+<div></div>
+<div></div>
+<div></div>
+</div>
+</div>
+</div>
+</header>
+<!---------------------------END-HEADER-------------------------------------------->
+
+
+<!------------------------------MANU------------------------------------------------>
+<div class="menu">
+<div>
+<div class="menu_overlay"></div>
+<div class="menu_container d-flex flex-column align-items-start justify-content-center">
+<div class="menu_log_reg">
+<ul class="d-flex flex-row align-items-start justify-content-start">
+<li><a href="{% url 'login' %}">Login</a></li>
+<li><a href="#">Register</a></li>
+</ul>
+</div>
+<nav class="menu_nav">
+<ul class="d-flex flex-column align-items-start justify-content-start">
+<li><a href="index-2.html">Home</a></li>
+<li><a href="about.html">About us</a></li>
+<li><a href="music.html">Music</a></li>
+<li><a href="blog.html">blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+
+<!-----------------------------END MANU-------------------------------------------->
+
+
+
+<!----------------------------------------HOME-------------------------------------------->
+
+ <div class="home_inner">
+
+  <div class="svg-wrap">
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <path id="arrow-left" d="M26.667 10.667q1.104 0 1.885 0.781t0.781 1.885q0 1.125-0.792 1.896l-14.104 14.104h41.563q1.104 0 1.885 0.781t0.781 1.885-0.781 1.885-1.885 0.781h-41.563l14.104 14.104q0.792 0.771 0.792 1.896 0 1.104-0.781 1.885t-1.885 0.781q-1.125 0-1.896-0.771l-18.667-18.667q-0.771-0.813-0.771-1.896t0.771-1.896l18.667-18.667q0.792-0.771 1.896-0.771z"></path>
+      </svg>
+
+      <svg width="64" height="64" viewBox="0 0 64 64">
+        <path id="arrow-right" d="M37.333 10.667q1.125 0 1.896 0.771l18.667 18.667q0.771 0.771 0.771 1.896t-0.771 1.896l-18.667 18.667q-0.771 0.771-1.896 0.771-1.146 0-1.906-0.76t-0.76-1.906q0-1.125 0.771-1.896l14.125-14.104h-41.563q-1.104 0-1.885-0.781t-0.781-1.885 0.781-1.885 1.885-0.781h41.563l-14.125-14.104q-0.771-0.771-0.771-1.896 0-1.146 0.76-1.906t1.906-0.76z"></path>
+      </svg>
+    </div>
+
+  <!-- SLIDER -->
+      <div  class="header-slide">
+        <section>
+          <div id="loader" class="pageload-overlay" data-opening="M 0,0 0,60 80,60 80,0 z M 80,0 40,30 0,60 40,30 z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 80 60" preserveAspectRatio="none">
+              <path d="M 0,0 0,60 80,60 80,0 Z M 80,0 80,60 0,60 0,0 Z"/>
+            </svg>
+          </div> <!-- /.pageload-overlay -->
+          
+          <div class="image-slide bg-fixed">
+            <div class="overlay">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-12">
+
+                    <div class="slider-content">
+                      <h1></h1>
+                      <p>We are a creative agency from the earth of Bandung, Indonesia</p>
+                    </div>
+
+                  </div> <!-- /.col-md-12 -->
+                </div> <!-- /.row -->
+              </div> <!-- /.container -->
+            </div> <!-- /.overlay -->
+          </div> <!-- /.image-slide -->
+
+          <nav class="nav-slide">
+            <a class="prev" href="#prev">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-left">
+                </svg>
+              </span>
+              <div>
+                <span>Prev Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Previous thumb">
+              </div>
+            </a>
+            <a class="next" href="#next">
+              <span class="icon-wrap">
+                <svg class="icon" width="32" height="32" viewBox="0 0 64 64">
+                  <use xlink:href="#arrow-right">
+                </svg>
+              </span>
+              <div>
+                <span>Next Photo</span>
+                <h3>...</h3>
+                <p>...</p>
+                <img alt="Next thumb">
+              </div>
+            </a>
+          </nav>
+        </section>
+
+        <script type="text/javascript">
+        var dataHeader = [
+                            {
+                              bigImage :"{% static 'images2/slider01.jpg' %}",
+                              title : "Minimal & Clean",
+                author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images2/slider04.jpg' %}",
+                              title : "I'm A Creative Theme",
+                              author : "Templatestock"
+                            },
+                            {
+                              bigImage :"{% static 'images2/slider02.jpg' %}",
+                              title : "Achieve Success",
+                              author : "Templatestock"
+                            }
+                        ],
+            loaderSVG = new SVGLoader(document.getElementById('loader'), {speedIn : 500, speedOut : 500, easingIn : mina.easeinout});
+            loaderSVG.show()
+        </script>
+
+      </div><!-- /.header-slide -->
+    </section>
+
+
+
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="{% static 'js2/main.js' %}"></script>
+  </body>
+</html>
+
+
+<!-----------------------------END HOME-------------------------------------------->
+
+
+
+<!----------------------------------------DISCS-------------------------------------------->
+<div class="discs">
+<div class="container">
+<div class="row discs_row">
+
+<div class="col-xl-4 col-md-6">
+<div class="disc">
+
+<a href="{% url 'user_view_product' pb='all' %}">
+
+
+<div class="disc_image"><img src="{% static 'images/disc_3.jpg' %}"  alt="https://unsplash.com/@tanelah"
+  width="#" height="#"></div>
+<div class="disc_container">
+<div>
+<div class="disc_content_2 justify-content-center ">
+
+<div class="disc_title">MAN</div>
+<div class="disc_subtitle">Change Your Style</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!----------------------------------------DISCS-------------------------------------------->
+<div class="col-xl-4 col-md-6">
+<div class="disc">
+<a href="{% url 'single' %}">
+<div class="disc_image"><img src="{% static 'images/disc_5.jpg' %}" alt="https://unsplash.com/@kasperrasmussen"width="#" height="#"></div>
+<div class="disc_container">
+<div>
+<div class="disc_content_2 d-flex flex-column align-items-center justify-content-center">
+
+<div>
+<div class="disc_title">Female</div>
+<div class="disc_subtitle">the world is ours</div>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!----------------------------------------DISCS-------------------------------------------->
+<div class="col-xl-4 col-md-6">
+<div class="disc">
+<a href="{% url 'single' %}">
+<div class="disc_image"><img src="{% static 'images/c1.jpg' %}" width="350px" height="350px" alt="https://unsplash.com/@photones11"></div>
+<div class="disc_container">
+<div>
+<div class="disc_content_3">
+<div>
+<div class="disc_title">Mixtape</div>
+<div class="disc_subtitle">Singles</div>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!----------------------------------------DISCS-------------------------------------------->
+
+
+
+<div class="col-xl-4 col-md-6">
+<div class="disc">
+<a href="{% url 'single' %}">
+<div class="disc_image"><img src="{% static 'images/disc_4.jpg' %}" alt="https://unsplash.com/@rexcuando"></div>
+<div class="disc_container">
+<div>
+<div class="disc_content_4 d-flex flex-column align-items-start justify-content-end">
+<div class="text-left">
+<div class="disc_title">Mixtape</div>
+<div class="disc_subtitle">1983</div>
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<!----------------------------------------DISCS-------------------------------------------->
+
+<div class="col-xl-4 col-md-6">
+<div class="disc">
+<a href="{% url 'single' %}">
+<div class="disc_image"><img src="{% static 'images/disc_5.jpg' %}" alt="https://unsplash.com/@alicemoore"></div>
+<div class="disc_container">
+<div>
+<div class="disc_content_5">
+<div class="disc_title">Mixtape</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+
+<!-------------dics---------->
+<div class="col-xl-4 col-md-6">
+<div class="disc">
+<a href="{% url 'single' %}">
+<div class="disc_image"><img src="{% static 'images/disc_6.jpg' %}" alt="https://unsplash.com/@arstyy"></div>
+<div class="disc_container">
+<div>
+<div class="disc_content_6">
+<div class="disc_title">Mixtape</div>
+<div class="disc_subtitle">Music For the People</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!----------------------------------------DISCS-------------------------------------------->
+
+<!-------------------------footer---------------------------------------------------------->
+<div class="milestones">
+<div class="milestones_container">
+<div class="parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/milestones.jpg' %}" data-speed="0.8"></div>
+<div class="container">
+<div class="row milestones_row">
+
+<div class="col-xl-3 col-md-6 milestone_col">
+<div class="milestone d-flex flex-row align-items-center justify-content-start">
+<div class="milestone_icon"><img src="{% static 'images/icon_1.svg' %}" alt="https://www.flaticon.com/authors/smashicons"></div>
+<div class="milestone_content">
+<div class="milestone_counter" data-end-value="298" data-sign-after="k">0</div>
+<div class="milestone_text">Albums sold</div>
+</div>
+</div>
+</div>
+
+<div class="col-xl-3 col-md-6 milestone_col">
+<div class="milestone d-flex flex-row align-items-center justify-content-start">
+<div class="milestone_icon"><img src="{% static 'images/icon_2.svg' %}" alt="https://www.flaticon.com/authors/smashicons"></div>
+<div class="milestone_content">
+<div class="milestone_counter" data-end-value="183">0</div>
+<div class="milestone_text">Live Concerts</div>
+</div>
+</div>
+</div>
+
+<div class="col-xl-3 col-md-6 milestone_col">
+<div class="milestone d-flex flex-row align-items-center justify-content-start">
+<div class="milestone_icon"><img src="{% static 'images/icon_3.svg' %}" alt="https://www.flaticon.com/authors/smashicons"></div>
+<div class="milestone_content">
+<div class="milestone_counter" data-end-value="37">0</div>
+<div class="milestone_text">Awards won</div>
+</div>
+</div>
+</div>
+
+<div class="col-xl-3 col-md-6 milestone_col">
+<div class="milestone d-flex flex-row align-items-center justify-content-start">
+<div class="milestone_icon"><img src="{% static 'images/icon_4.svg' %}" alt="https://www.flaticon.com/authors/smashicons"></div>
+<div class="milestone_content">
+<div class="milestone_counter" data-end-value="14">0</div>
+<div class="milestone_text">New Singles</div>
+</div>
+</div>
+</div>
+ </div>
+</div>
+</div>
+</div>
+
+<!-----------------------------------------MILESTONES-------------------------------------------->
+
+
+<!-----------------------------------------FOOTER------------------------------------------------>
+
+
+<footer class="footer">
+<div class="footer_container d-flex flex-xl-row flex-column align-items-start justify-content-start">
+<div class="newsletter_container">
+<div class="newsletter_title"><h2>Subscribe to our newsletter</h2></div>
+<form action="#" id="newsletter_form" class="newsletter_form">
+<input type="email" class="newsletter_input" placeholder="Your E-mail" required="required">
+<button class="newsletter_button">Subscribe</button>
+</form>
+</div>
+<div class="footer_lists d-flex flex-sm-row  flex-column align-items-start justify-content-start ml-xl-auto">
+<!----------------------------------USE--LINKS------------------------------------------------------->
+
+<div class="footer_list">
+<div class="footer_list_title">Useful Links</div>
+<ul>
+<li><a href="index-2.html">Home</a></li>
+<li><a href="about.html">About us</a></li>
+<li><a href="#">Testimonials</a></li>
+<li><a href="#">Music</a></li>
+<li><a href="blog.html">News</a></li>
+</ul>
+</div>
+<!------------------------------------------------MIXTAPE---------------------------------------------->
+<div class="footer_list">
+<div class="footer_list_title">Mixtape</div>
+<ul>
+<li><a href="#">Music</a></li>
+<li><a href="#">PR & Marketing</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">About us</a></li>
+<li><a href="#">Testimonials</a></li>
+</ul>
+</div>
+<!-----------------------------------------Connect---------------------------------------------------->
+
+
+<div class="footer_list">
+<div class="footer_list_title">Connect</div>
+<ul>
+<li><a href="#">Returns</a></li>
+<li><a href="#">Shippings</a></li>
+<li><a href="#">Jobs</a></li>
+<li><a href="#">Social Media</a></li>
+<li><a href="#">Soundcloud</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="copyright_bar">
+<span>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com/" target="_blank">Colorlib</a>
+
+</span>
+</div>
+</footer>
+</div>
+<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/popper.js' %}"></script>
+<script src="{% static 'styles/bootstrap-4.1.2/bootstrap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/TimelineMax.min.js' %}"></script>
+<script src="{% static 'plugins/scrollmagic/ScrollMagic.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/animation.gsap.min.js' %}"></script>
+<script src="{% static 'plugins/greensock/ScrollToPlugin.min.js' %}"></script>
+<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+<script src="{% static 'plugins/easing/easing.js' %}"></script>
+<script src="{% static 'plugins/progressbar/progressbar.min.js' %}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+<script src="{% static 'plugins/jPlayer/jquery.jplayer.min.js' %}"></script>
+<script src="{% static 'plugins/jPlayer/jplayer.playlist.min.js' %}"></script>
+<script src="{% static 'js/about.js' %}"></script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+</body>
+
+<!-- Mirrored from preview.colorlib.com/theme/mixtape/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 17 Mar 2021 07:58:37 GMT -->
+</html>
+
+  
